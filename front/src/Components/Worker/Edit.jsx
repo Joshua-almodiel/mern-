@@ -31,7 +31,7 @@ const Edit = () => {
     useEffect(() => {
         const fetchWorkers = async () => {
             try {
-                const responnse = await axios.get(`http://localhost:5000/api/worker/${id}`,
+                const responnse = await axios.get(`https://mern-topaz-eta.vercel.app/api/worker/${id}`,
                     {
                         headers: {
                             Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -59,7 +59,7 @@ const Edit = () => {
         e.preventDefault()
         console.log(worker)
         try {
-            const response = await axios.put(`http://localhost:5000/api/worker/${id}`, worker, {
+            const response = await axios.put(`https://mern-topaz-eta.vercel.app/api/worker/${id}`, worker, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
                 },

@@ -39,7 +39,7 @@ const Add = () => {
         e.preventDefault();
 
         try {
-            const response = await axios.post("http://localhost:5000/api/worker/add", formData, {
+            const response = await axios.post("https://mern-topaz-eta.vercel.app/api/worker/add", formData, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`,
                 },

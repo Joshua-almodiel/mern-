@@ -28,7 +28,7 @@ export const SiteButtons = ({ _id, onSiteDelete }) => {
         const confirm = window.confirm("Do you want to delete it?")
         if (confirm) {
             try {
-                const responnse = await axios.delete(`http://localhost:5000/api/site/${id}`,
+                const responnse = await axios.delete(`https://mern-topaz-eta.vercel.app/api/site/${id}`,
                     {
                         headers: {
                             Authorization: `Bearer ${localStorage.getItem('token')}`

@@ -8,7 +8,7 @@ const WorkerSalaryGraph = () => {
     useEffect(() => {
         const fetchStats = async () => {
             try {
-                const response = await axios.get("http://localhost:5000/api/dashboard/worker-salary-stats", {
+                const response = await axios.get("https://mern-topaz-eta.vercel.app/api/dashboard/worker-salary-stats", {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem("token")}`,
                     },

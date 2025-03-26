@@ -24,7 +24,7 @@ const List = () => {
   useEffect(() => {
     const fetchWorkers = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/worker", {
+        const response = await axios.get("https://mern-topaz-eta.vercel.app/api/worker", {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },

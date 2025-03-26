@@ -11,7 +11,10 @@ import DashboardRouter from './ConstructionRouter/DashboardRouter.js'
 
 connectToDatabase()
 const app = express()
-app.use(cors())
+app.use(cors({
+    origin: "https://mern-cwms.vercel.app/",
+    credentials: true
+}))
 app.use(express.json())
 app.use('/api/auth', UserRouter)
 app.use('/api/site', SiteRouter)

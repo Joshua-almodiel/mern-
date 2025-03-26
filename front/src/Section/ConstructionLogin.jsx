@@ -13,7 +13,7 @@ function ConstructionLogin() {
     const handleLogin = async (e) => {
         e.preventDefault()
         try {
-            const response = await axios.post("http://localhost:5000/api/auth/login", { email, password });
+            const response = await axios.post("https://mern-topaz-eta.vercel.app/api/auth/login", { email, password });
             if (response.data.success) {
                 login(response.data.user)
                 localStorage.setItem("token", response.data.token)
@@ -27,12 +27,7 @@ function ConstructionLogin() {
             if (error.response && !error.response.data.success) {
                 setError(error.response.data.error)
             } else {
-                setError({
-                    message: "Network error",
-                    style: "bg-red-50 border-l-4 border-red-400 text-red-700 p-4",
-                    icon: "❌",
-                    visible: true
-                })
+                setError("Something went wrong")
             }
         }
     }

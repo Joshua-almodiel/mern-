@@ -34,7 +34,7 @@ export const columns = [
 export const fetchSites = async () => {
     let sites;
     try {
-        const response = await axios.get('http://localhost:5000/api/site', {
+        const response = await axios.get('https://mern-topaz-eta.vercel.app/api/site', {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`
             }
@@ -54,7 +54,7 @@ export const fetchSites = async () => {
 export const getWorkers = async (id) => {
     let workers;
     try {
-        const response = await axios.get(`http://localhost:5000/api/worker/site/${id}`, {
+        const response = await axios.get(`https://mern-topaz-eta.vercel.app/api/worker/site/${id}`, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`
             }

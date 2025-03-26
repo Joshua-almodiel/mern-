@@ -27,7 +27,7 @@ const SiteList = () => {
 
   const fetchSites = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/site", {
+      const response = await axios.get("https://mern-topaz-eta.vercel.app/api/site", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },

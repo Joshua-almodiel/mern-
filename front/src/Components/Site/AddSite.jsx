@@ -19,7 +19,7 @@ const AddSite = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const response = await axios.post('http://localhost:5000/api/site/add', site, {
+      const response = await axios.post('https://mern-topaz-eta.vercel.app/api/site/add', site, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`
         },

@@ -14,7 +14,7 @@ const List = () => {
         try {
             setLoading(true);
             console.log("Fetching leaves for ID:", id);
-            const response = await axios.get(`http://localhost:5000/api/leave/${id}/${user.role}`, {
+            const response = await axios.get(`https://mern-topaz-eta.vercel.app/api/leave/${id}/${user.role}`, {
                 headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
             });
 

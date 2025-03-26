@@ -19,7 +19,7 @@ const DetailsLeave = () => {
     useEffect(() => {
         const fetchLeaves = async () => {
             try {
-                const responnse = await axios.get(`http://localhost:5000/api/leave/detail/${id}`,
+                const responnse = await axios.get(`https://mern-topaz-eta.vercel.app/api/leave/detail/${id}`,
                     {
                         headers: {
                             Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -40,7 +40,7 @@ const DetailsLeave = () => {
 
     const changeStatus = async (id, status) => {
         try {
-            const response = await axios.put(`http://localhost:5000/api/leave/${id}`, { status },
+            const response = await axios.put(`https://mern-topaz-eta.vercel.app/api/leave/${id}`, { status },
                 {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem('token')}`

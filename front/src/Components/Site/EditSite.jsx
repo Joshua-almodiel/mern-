@@ -12,7 +12,7 @@ const EditSite = () => {
         const fetchSites = async () => {
             setSiteLoading(true)
             try {
-                const responnse = await axios.get(`http://localhost:5000/api/site/${id}`,
+                const responnse = await axios.get(`https://mern-topaz-eta.vercel.app/api/site/${id}`,
                     {
                         headers: {
                             Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -41,7 +41,7 @@ const EditSite = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const response = await axios.put(`http://localhost:5000/api/site/${id}`,
+            const response = await axios.put(`https://mern-topaz-eta.vercel.app/api/site/${id}`,
                 site, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
