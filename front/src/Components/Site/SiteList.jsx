@@ -1,53 +1,59 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import DataTable from "react-data-table-component";
-import { columns, SiteButtons } from "../../Utilities/SiteHelper.jsx"
+import { columns, SiteButtons } from "../../Utilities/SiteHelper.jsx";
 import axios from "axios";
 
 const SiteList = () => {
-  const [sites, setSites] = useState([])
-  const [siteLoading, setSiteLoading] = useState(false)
-  const [searchSite, setSearchSite] = useState()
+  const [sites, setSites] = useState([]);
+  const [searchSite, setSearchSite] = useState();
+
+  const noRecords = {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100%",
+    color: "white",
+    backgroundColor: "#1F2937",
+    fontSize: "1.5rem",
+    fontWeight: "500",
+    padding: "2rem",
+    borderRadius: "0.5rem",
+  }
 
   const onSiteDelete = () => {
     fetchSites();
-  }
+  };
 
   const fetchSites = async () => {
-    setSiteLoading(true)
     try {
-      const response = await axios.get('http://localhost:5000/api/site', {
+      const response = await axios.get("http://localhost:5000/api/site", {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
-        }
-      })
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
       if (response.data.success) {
         let sno = 1;
-        const data = await response.data.sites.map((site) => (
-          {
-            _id: site._id,
-            sno: sno++,
-            site_name: site.site_name,
-            address: site.address,
-            action: (<SiteButtons _id={site._id} onSiteDelete={onSiteDelete}/>)
-          }
-        ));
+        const data = await response.data.sites.map((site) => ({
+          _id: site._id,
+          sno: sno++,
+          site_name: site.site_name,
+          address: site.address,
+          action: <SiteButtons _id={site._id} onSiteDelete={onSiteDelete} />,
+        }));
         setSites(data);
         setSearchSite(data);
       }
     } catch (error) {
       if (error.response && !error.response.data.success) {
-        alert(error.response.data.error)
+        alert(error.response.data.error);
       }
-    } finally {
-      setSiteLoading(false)
     }
   };
 
   useEffect(() => {
     fetchSites();
-  }, [])
-
+  }, []);
 
   const customStyles = {
     rows: {
@@ -72,19 +78,16 @@ const SiteList = () => {
     },
   };
 
-
   const searchSites = (e) => {
-    const records = sites.filter((site) => site.site_name.toLowerCase().includes(e.target.value.toLowerCase()))
-    setSearchSite(records)
-  }
+    const records = sites.filter((site) =>
+      site.site_name.toLowerCase().includes(e.target.value.toLowerCase())
+    );
+    setSearchSite(records);
+  };
 
   return (
     <>
-      {siteLoading ? (
-        <div className="flex justify-center items-center h-64 text-white">
-          Loading...
-        </div>
-      ) : (
+      {searchSite ? (
         <div className="p-6 bg-gray-900 text-white">
           <div className="mb-6">
             <h3 className="text-2xl font-semibold">Manage Sites</h3>
@@ -107,15 +110,23 @@ const SiteList = () => {
           </div>
 
           <div className="bg-gray-800 rounded-lg shadow-md overflow-hidden">
-            <DataTable
-              columns={columns}
-              data={searchSite}
-              customStyles={customStyles}
-              pagination
-              highlightOnHover
-              responsive
-            />
+            {searchSite.length > 0 ? (
+              <DataTable
+                columns={columns}
+                data={searchSite}
+                customStyles={customStyles}
+                pagination
+                highlightOnHover
+                responsive
+              />
+            ) : (
+              <div style={noRecords}>No Records Found</div>
+            )}
           </div>
+        </div>
+      ) : (
+        <div className="flex justify-center items-center h-64 text-white">
+          Loading...
         </div>
       )}
     </>

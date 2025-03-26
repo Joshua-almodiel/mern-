@@ -32,5 +32,3 @@ const verify = (req, res) => {
 }
 
 export {login, verify}
-
-//code file 6

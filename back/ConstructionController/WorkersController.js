@@ -22,7 +22,7 @@ const addWorker = async (req, res) => {
 
         const user = await ConstructionUser.findOne({ email })
         if (user) {
-            return res.status(400).json({ success: false, error: "Construction user already registered in site" })
+            return res.status(400).json({ success: false, error: "Construction email already registered in site" })
         }
 
         const hashPassword = await bcrypt.hash(password, 10)
@@ -45,6 +45,9 @@ const addWorker = async (req, res) => {
             site,
             salary
         })
+
+
+
         await newWorker.save()
         return res.status(200).json({ success: true, message: "worker created" })
 

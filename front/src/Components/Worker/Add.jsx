@@ -17,7 +17,7 @@ const Add = () => {
         site: "",
         salary: "",
         password: "",
-        role: "worker", // Default role
+        role: "worker",
     });
     const navigate = useNavigate();
 
@@ -71,7 +71,7 @@ const Add = () => {
                             placeholder="Enter Name"
                             onChange={handleChange}
                             className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500 text-white"
-                            required
+                            
                         />
                     </div>
 
@@ -209,22 +209,6 @@ const Add = () => {
                             className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500 text-white"
                             required
                         />
-                    </div>
-
-                    <div>
-                        <label htmlFor="role" className="block text-sm font-medium mb-2">
-                            Role
-                        </label>
-                        <select
-                            name="role"
-                            onChange={handleChange}
-                            className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500 text-white"
-                            required
-                        >
-                            <option value="">Select Role</option>
-                            <option value="manager">Manager</option>
-                            <option value="worker">Worker</option>
-                        </select>
                     </div>
 
                 </div>

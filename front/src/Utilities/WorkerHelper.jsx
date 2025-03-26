@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 export const columns = [
     {
-        name: "S no",
+        name: "ID",
         selector: (row) => row.sno,
         width: "135px",
     },
@@ -19,7 +19,7 @@ export const columns = [
         width: "175px",
     },
     {
-        name: "DOB",
+        name: "Date of Birth",
         selector: (row) => row.dob,
         sortable: true,
         width: "190px",

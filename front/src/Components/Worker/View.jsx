@@ -34,14 +34,14 @@ const View = () => {
             }
         };
         fetchWorkers();
-    }, []);
+    });
 
     if (!worker) {
         return <div className="p-6 bg-gray-900 text-white">Loading...</div>;
     }
 
     return (
-        <div className="p-6 bg-gray-900 text-white min-h-screen">
+        <div className="p-6 bg-gray-900 text-white">
             <h2 className="text-2xl font-semibold mb-6">Construction Worker Details</h2>
             <div className="bg-gray-800 p-8 rounded-lg shadow-lg">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

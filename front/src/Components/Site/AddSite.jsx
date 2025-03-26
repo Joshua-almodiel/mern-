@@ -95,5 +95,3 @@ const AddSite = () => {
 };
 
 export default AddSite;
-
-{/* code file 17*/ }

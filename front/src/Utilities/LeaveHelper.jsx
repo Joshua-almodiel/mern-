@@ -4,11 +4,6 @@ import { useNavigate } from 'react-router-dom'
 
 export const columns = [
     {
-      name: "S no",
-      selector: (row) => row.sno,
-      width: "100px", 
-    },
-    {
       name: "Worker ID",
       selector: (row) => row.workerId,
       width: "150px",
@@ -16,27 +11,27 @@ export const columns = [
     {
       name: "Name",
       selector: (row) => row.name,
-      width: "160px",
+      width: "200px",
     },
     {
       name: "Leave Type",
       selector: (row) => row.leaveType,
-      width: "150px",
+      width: "200px",
     },
     {
       name: "Sites",
       selector: (row) => row.site,
-      width: "170px",
+      width: "200px",
     },
     {
       name: "Days",
       selector: (row) => row.days,
-      width: "120px", 
+      width: "180px", 
     },
     {
       name: "Status",
       selector: (row) => row.status,
-      width: "130px", 
+      width: "150px", 
     },
     {
       name: "Action",

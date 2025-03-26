@@ -27,7 +27,12 @@ function ConstructionLogin() {
             if (error.response && !error.response.data.success) {
                 setError(error.response.data.error)
             } else {
-                setError("Server Error")
+                setError({
+                    message: "Network error",
+                    style: "bg-red-50 border-l-4 border-red-400 text-red-700 p-4",
+                    icon: "❌",
+                    visible: true
+                })
             }
         }
     }

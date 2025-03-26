@@ -10,10 +10,10 @@ const ManagerSidebar = () => {
 
   return (
     <div className="fixed inset-y-0 flex flex-col bg-gray-800 text-white w-64">
-      <div className="p-4 border-b border-gray-700">
-        <h3 className="text-lg font-semibold">CW Management System</h3>
+      <div className="p-4 border-gray-700">
+        <h3 className="text-lg text-center font-semibold">CW Management</h3>
       </div>
-      <div className="flex flex-col p-2 space-y-2">
+      <div className="flex flex-col p-8 space-y-6">
 
         <NavLink
           to="/manager-dashboard"

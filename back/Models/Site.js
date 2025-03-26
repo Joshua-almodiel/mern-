@@ -16,14 +16,12 @@ siteSchema.pre("deleteOne", { document: true, query: false }, async function (ne
     try {
         const workers = await ConstructionWorkers.find({ site: this._id });
         const workerIds = workers.map((worker) => worker._id);
+        const userIds = workers.map((worker) => worker.userId);
 
         await ConstructionWorkers.deleteMany({ site: this._id });
-
         await ConstructionLeaves.deleteMany({ workerId: { $in: workerIds } });
-
         await ConstructionSalaries.deleteMany({ workerId: { $in: workerIds } });
-
-        await ConstructionUser.deleteMany({ userId: this._id });
+        await ConstructionUser.deleteMany({ _id: { $in: userIds } });
 
         next();
     } catch (error) {

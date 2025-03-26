@@ -12,5 +12,3 @@ const constructionUserSchema = new mongoose.Schema({
 
 const ConstructionUser = mongoose.model("ConstructionUser", constructionUserSchema)
 export default ConstructionUser;
-
-//code file 3

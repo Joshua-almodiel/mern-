@@ -4,7 +4,7 @@ import axios from "axios"
 
 export const columns = [
     {
-        name: "S no",
+        name: "ID Site",
         selector: (row) => row.sno
     },
     {

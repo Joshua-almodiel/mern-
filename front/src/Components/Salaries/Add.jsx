@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { fetchSites, getWorkers } from '../../Utilities/WorkerHelper.jsx';
 import axios from "axios";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 const Add = () => {
@@ -28,8 +28,20 @@ const Add = () => {
     }, [])
 
     const handleSite = async (e) => {
-        const works = await getWorkers(e.target.value)
-        setWorkers(works)
+        const siteId = e.target.value;
+        if (!siteId) {
+            setWorkers([]);
+            return;
+        }
+        
+        try {
+            const works = await getWorkers(siteId);
+            setWorkers(works);
+            setSalary(prev => ({ ...prev, workerId: null }));
+        } catch (error) {
+            console.error("Failed to fetch workers:", error);
+            setWorkers([]);
+        }
     }
 
 
