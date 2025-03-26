@@ -144,7 +144,7 @@ const SiteList = () => {
             />
           </svg>
           <h3 className="mt-4 text-lg font-medium text-gray-300">
-            No Sites Right Now
+            Loading Sites...
           </h3>
         </div>
       )}
