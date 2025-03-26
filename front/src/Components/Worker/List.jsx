@@ -127,7 +127,7 @@ const List = () => {
         </div>
       </div>
       ) : (
-        <div className="p-6 bg-gray-900 text-white">Loading...</div>
+        <div className="p-6 bg-gray-900 text-white text-center">Loading...</div>
       )}
     </>
   );

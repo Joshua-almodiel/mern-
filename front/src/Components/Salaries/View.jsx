@@ -98,7 +98,7 @@ const View = () => {
           )}
         </div>
       ) : (
-        <div className="flex justify-center items-center h-64 text-white">
+        <div className="flex justify-center items-center h-64 text-white text-center">
           Loading...
         </div>
       )}

@@ -35,7 +35,7 @@ const ManagerOverview = () => {
   }, []);
 
   if (!summary) {
-    return <div className="p-6 bg-gray-900 text-white">Loading...</div>;
+    return <div className="p-6 bg-gray-900 text-white text-center">Loading...</div>;
   }
 
   return (
