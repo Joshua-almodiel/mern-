@@ -52,22 +52,20 @@ export const fetchSites = async () => {
 
 
 export const getWorkers = async (id) => {
-    let workers;
     try {
         const response = await axios.get(`https://mern-topaz-eta.vercel.app/api/worker/site/${id}`, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`
             }
-        })
+        });
+        console.log("API Response:", response.data); // Debugging
         if (response.data.success) {
-            return response.data.workers
+            return response.data.workers;
         }
     } catch (error) {
-        if (error.response && !error.response.data.success) {
-            alert(error.response.data.error)
-        }
+        console.error("Error fetching workers:", error);
     }
-    return workers
+    return [];
 };
 
 export const WorkerButtons = ({ _id }) => {
